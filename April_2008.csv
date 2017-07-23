@@ -1,6 +1,6 @@
-query_label,distance,rank
-0,0,1
-0,0.954887,2
-0,0.957792,3
-0,0.961806,4
-0,0.962901,5
+query_label,reference_label,distance,rank
+0,April 2008 New York Commercial Real Estate Market Report,0,1
+0,January 2007 New York Commercial Real Estate Market Report,0.954887,2
+0,March 2015 New York Commercial Real Estate Market Report,0.957792,3
+0,August 2007 New York Commercial Real Estate Market Report,0.961806,4
+0,August 2013 New York Commercial Real Estate Market Report,0.962901,5
