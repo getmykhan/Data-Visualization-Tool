@@ -3,6 +3,8 @@ import matplotlib.pyplot as plt
 
 def PullDataCsv(path):
     df =  pd.read_csv(path)
+    dfnum = df._get_numeric_data()
+    print (dfnum)
     a=df['distance']
     b=df['rank']
     plt.plot(a,b)
