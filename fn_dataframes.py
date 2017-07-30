@@ -5,9 +5,10 @@ def run(path):
     #print(aa['query_label'],['rank'])
     #df1 = df[['distance', 'rank']]
     #df1 = df.ix[0:,2:]
-    sr = df[[3]]
-    sr2 = df[[2]]
+    sr = list(df[[0]])
+    sr2 = list(df[[1]])
     print(sr, sr2)
-    plt.plot(sr, sr2)
+    #plt.plot(sr, sr2)
     return (sr, sr2)
+
 run('April_2008.csv')

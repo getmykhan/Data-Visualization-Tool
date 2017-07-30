@@ -1,0 +1,91 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Menlo-Bold;\f2\fnil\fcharset0 Menlo-Regular;
+}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue109;\red0\green0\blue162;\red14\green110\blue109;
+\red82\green0\blue135;\red0\green0\blue117;\red234\green234\blue234;\red37\green37\blue37;\red106\green0\blue67;
+\red83\green85\blue2;\red16\green121\blue2;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 //flask code:\
+	
+\f1\b \cf2 from 
+\f2\b0 \cf0 flask 
+\f1\b \cf2 import 
+\f2\b0 \cf0 Flask, redirect, url_for, request\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 app = Flask(__name__)\
+\
+@\cf3 app.route\cf0 (
+\f1\b \cf4 '/success/<name>'
+\f2\b0 \cf0 )\
+
+\f1\b \cf2 def 
+\f2\b0 \cf0 success(name):\
+   
+\f1\b \cf2 return \cf4 'welcome %s' 
+\f2\b0 \cf0 % name\
+\
+@\cf3 app.route\cf0 (
+\f1\b \cf4 '/login'
+\f2\b0 \cf0 ,\cf5 methods \cf0 = [
+\f1\b \cf4 'POST'
+\f2\b0 \cf0 , 
+\f1\b \cf4 'GET'
+\f2\b0 \cf0 ])\
+
+\f1\b \cf2 def 
+\f2\b0 \cf0 login():\
+   
+\f1\b \cf2 if 
+\f2\b0 \cf0 request.method == 
+\f1\b \cf4 'POST'
+\f2\b0 \cf0 :\
+      user = request.form[
+\f1\b \cf4 'nm'
+\f2\b0 \cf0 ]\
+      
+\f1\b \cf2 return 
+\f2\b0 \cf0 redirect(url_for(
+\f1\b \cf4 'success'
+\f2\b0 \cf0 ,\cf5 name \cf0 = user))\
+   
+\f1\b \cf2 else
+\f2\b0 \cf0 :\
+      user = request.args.get(
+\f1\b \cf4 'nm'
+\f2\b0 \cf0 )\
+      
+\f1\b \cf2 return 
+\f2\b0 \cf0 redirect(url_for(
+\f1\b \cf4 'success'
+\f2\b0 \cf0 ,\cf5 name \cf0 = user))\
+\
+
+\f1\b \cf2 if 
+\f2\b0 \cf0 __name__ == 
+\f1\b \cf4 '__main__'
+\f2\b0 \cf0 :\
+   app.run(\cf5 debug \cf0 = 
+\f1\b \cf2 True
+\f2\b0 \cf0 )\
+\
+\
+\
+html code:\
+\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\fs26 \cf6 \cb7 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec6 <html>\cf8 \strokec8 \
+   \cf6 \strokec6 <body>\cf8 \strokec8 \
+      \
+      \cf6 \strokec6 <form\cf8 \strokec8  \cf9 \strokec9 action\cf8 \strokec8  \cf10 \strokec10 =\cf8 \strokec8  \cf11 \strokec11 "http://localhost:5000/login"\cf8 \strokec8  \cf9 \strokec9 method\cf8 \strokec8  \cf10 \strokec10 =\cf8 \strokec8  \cf11 \strokec11 "post"\cf6 \strokec6 >\cf8 \strokec8 \
+         \cf6 \strokec6 <p>\cf8 \strokec8 Enter Name:\cf6 \strokec6 </p>\cf8 \strokec8 \
+         \cf6 \strokec6 <p><input\cf8 \strokec8  \cf9 \strokec9 type\cf8 \strokec8  \cf10 \strokec10 =\cf8 \strokec8  \cf11 \strokec11 "text"\cf8 \strokec8  \cf9 \strokec9 name\cf8 \strokec8  \cf10 \strokec10 =\cf8 \strokec8  \cf11 \strokec11 "nm"\cf8 \strokec8  \cf6 \strokec6 /></p>\cf8 \strokec8 \
+         \cf6 \strokec6 <p><input\cf8 \strokec8  \cf9 \strokec9 type\cf8 \strokec8  \cf10 \strokec10 =\cf8 \strokec8  \cf11 \strokec11 "submit"\cf8 \strokec8  \cf9 \strokec9 value\cf8 \strokec8  \cf10 \strokec10 =\cf8 \strokec8  \cf11 \strokec11 "submit"\cf8 \strokec8  \cf6 \strokec6 /></p>\cf8 \strokec8 \
+      \cf6 \strokec6 </form>\cf8 \strokec8 \
+      \
+   \cf6 \strokec6 </body>\cf8 \strokec8 \
+\cf6 \strokec6 </html>\cf8 \strokec8 \
+}
